@@ -18,7 +18,7 @@ def getNetworkData(filePath):
 
 def makeSubNetwork(paths):
     # Make a subnetwork from the shortest paths of two proteins
-    subNetwork = nx.Graph(name="SubNetwork")
+    subNetwork = nx.DiGraph(name="SubNetwork")
     tempEdges = []
     for path in paths:
         for i in range(len(path)-1):

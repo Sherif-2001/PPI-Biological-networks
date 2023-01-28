@@ -3,7 +3,7 @@ import networkx as nx
 
 edgesData = func.getNetworkData("Alpha6Beta4Integrin-edges.txt")
 
-network = nx.Graph(name="PPI Network")
+network = nx.DiGraph(name="PPI Network")
 network.add_edges_from(edgesData,weight=1)
 
 func.drawNetworkGraph(network)
