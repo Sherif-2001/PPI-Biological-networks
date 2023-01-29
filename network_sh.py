@@ -1,12 +1,19 @@
 import functions as func
 import networkx as nx
 
+# The data of the edges from the text file
 edgesData = func.getNetworkData("Alpha6Beta4Integrin-edges.txt")
 
+# Initialize a graph with edges, name, and graph attributes
 network = nx.DiGraph(name="PPI Network")
+
+# Add given edges data to the network
 network.add_edges_from(edgesData,weight=1)
 
+# Draw the given network 
 func.drawNetworkGraph(network)
+
+# Get the shortest path(s) between the two given proteins
 func.getShortestPaths(network,"Q16787","P24043")
 
 
