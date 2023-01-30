@@ -8,18 +8,13 @@ edgesData = func.getNetworkData("Alpha6Beta4Integrin-edges.txt")
 network = nx.DiGraph(name="PPI Network")
 
 # Add given edges data to the network
-network.add_edges_from(edgesData,weight=1)
+network.add_weighted_edges_from(edgesData)
 
 # Draw the given network 
 func.drawNetworkGraph(network)
 
 # Get the shortest path(s) between the two given proteins
 func.getShortestPaths(network,"Q16787","P24043")
-
-
-
-
-
 
 
 
