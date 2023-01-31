@@ -114,3 +114,71 @@ def writePathsToFile(pathsData):
             edgesWeights.append(str(edge[-1]))
         f.write(",".join(edgesWeights) + "\n")
     f.close()
+
+def getList(data,protein):
+    """
+    Obtain a list of the protein's connected counterparts
+
+    Parameters
+    ----------
+    data : list
+        List of protein edges
+    protein : str
+        The protein's name
+    """
+    i = 0
+    newFile = open("ListOfProteins.txt","w")
+    newFile.write("Tail\t\tHead\tEdge_Weight\n")
+    for m in np.arange(len(data)):
+        if protein == data[m][0] == data[m][1]:
+            continue
+        if (protein == data[m][0]) or (protein == data[m][1]):
+            newFile.write(data[m][0]+"\t\t"+data[m][1]+"\t"+str(data[m][2])+"\n")
+            # print(data[m][2])
+            i+=1
+    newFile.write("\nDegree = "+str(i))
+    newFile.close
+
+def getDegreeAndHistogram(data,list):
+    """
+    Draw a list's histogram after finding its proteins' degree
+
+    Parameters
+    ----------
+    data : list
+        List of protein edges
+    list : list
+        Collection of proteins
+
+    Return
+    ------
+    degree:
+        Degree of the proteins in this list
+    """
+    degree = []
+    array = []
+    for n in np.arange(len(list)):
+        i=0
+        for m in np.arange(len(data)):
+            if (list[n] == data[m][0]) or (list[n] == data[m][1]):
+                i+=1
+                array.append(list[n])
+        degree.append([list[n],i])
+    plt.hist(array)
+    return degree
+
+def getOrderedDegree(array):
+    """
+    Obtain a text file with proteins that are ranked by degree
+
+    Parameters
+    ----------
+    array : list
+        Proteins listed along with their degrees
+    """
+    array.sort(key=lambda x:x[1],reverse=True)
+    newFile = open("OrderedDegreeList.txt","w")
+    newFile.write("Protein\tDegree\n")
+    for n in np.arange(len(array)):
+        newFile.write(array[n][0]+"\t\t"+str(array[n][1])+"\n")
+    newFile.close
