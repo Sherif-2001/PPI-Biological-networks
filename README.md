@@ -9,7 +9,7 @@ Mazen Tarek Shaker | 2 | 13 | https://github.com/Mazen-Aboulkhair
 Yehia Said Ahmed | 2 | 53 | https://github.com/YehiaSAhmed/
 ___
 ## About
-
+Protein-protein interactions (PPI) are the physical connections that exist between proteins in a cell. Understanding PPIs is crucial for comprehending cell physiology, and is also essential for drug development due to the potential impact of medications on PPIs.
 ## Features
 * Building a biological network from the available interactome.
 * The total path(s) score is calculated after finding the acyclic shrotest path(s) between two proteins.
@@ -20,6 +20,6 @@ ___
 * Creating a histogram to represent a group of proteins' degrees.
 * Arranging these proteins in descending order of degree and saving the results in a text file.
 * Giving a conversion map between the gene name(s) and the protein(s) UniProt's ID(s).
-* 
+* Find the graph's adjacency matrix.
 ### Under Supervision of [Dr. Ibrahim Mohamed Ibrahim](https://github.com/Ibrahim-Youssef)
 ### Copyright © 2023, Team 3 SBME 2024 - Faculty of Engineering - Cairo Uni. 
