@@ -21,5 +21,6 @@ Protein-protein interactions (PPI) are the physical connections that exist betwe
 * Arranging these proteins in descending order of degree and saving the results in a text file.
 * Giving a conversion map between the gene name(s) and the protein(s) UniProt's ID(s).
 * Find the graph's adjacency matrix.
+
 ### Under Supervision of [Dr. Ibrahim Mohamed Ibrahim](https://github.com/Ibrahim-Youssef)
 ### Copyright © 2023, Team 3 SBME 2024 - Faculty of Engineering - Cairo Uni. 
