@@ -23,4 +23,4 @@ Protein-protein interactions (PPI) are the physical connections that exist betwe
 * Find the graph's adjacency matrix.
 
 ### Under Supervision of [Dr. Ibrahim Mohamed Ibrahim](https://github.com/Ibrahim-Youssef)
-### Copyright © 2023, Team 3 SBME 2024 - Faculty of Engineering - Cairo Uni. 
+### Copyright © 2023, Team 1 SBME 2024 - Faculty of Engineering - Cairo Uni. 
