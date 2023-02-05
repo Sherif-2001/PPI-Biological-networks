@@ -1,6 +1,8 @@
 from matplotlib import pyplot as plt
 import networkx as nx
 import numpy as np
+from unipressed import IdMappingClient
+import time
 
 from path_class import PathData
 
@@ -181,3 +183,123 @@ def getOrderedDegree(array):
     for n in np.arange(len(array)):
         newFile.write(array[n][0]+"\t\t"+str(array[n][1])+"\n")
     newFile.close
+
+def getNodes(filePath):
+    """
+    Obtain all the nodes in a text file
+
+    Parameters
+    ----------
+    filePath : str
+        the path of the data file
+
+    Return
+    ------
+    nodes:
+        A set of the nodes in given data
+    """
+    data = np.loadtxt(filePath, usecols=(0,1),
+                      skiprows=1, dtype=str)
+    nodes = set()
+
+    for i in range(0, len(data)-1):
+        nodes.add(data[i][0])
+        nodes.add(data[i][1])
+    return nodes
+
+def convert_Uniport_to_gene_name(ids):
+    """
+    Convert the given Uniport IDs to thier gene names
+
+    Parameters
+    ----------
+    ids : set
+        A set of Uniport IDs
+
+    Return
+    ------
+    list:
+        A list of objects of the ID and its gene name
+    """
+    request = IdMappingClient.submit(
+    source="UniProtKB_AC-ID", dest="Gene_Name", ids=ids
+    )
+    time.sleep(2)
+    return list(request.each_result())
+
+def getEdges(filePath):
+    """
+    Obtain all the edges in a text file
+
+    Parameters
+    ----------
+    filePath : str
+        the path of the data file
+
+    Return
+    ------
+    edges:
+        A list of the edges in given data
+    """
+    data = np.loadtxt(filePath, usecols=(0,1),
+                      skiprows=1, dtype=str)
+    edges = []
+
+    for i in range(0, len(data)-1):
+        edges.append((data[i][0], data[i][1]))
+    return edges
+
+
+def getAdjMatrix(nodes,edges):
+    """
+    Obtain the adjacency matrix of given nodes
+
+    Parameters
+    ----------
+    nodes : list
+        A list of the nodes in the gragh
+    edges : list
+        A list of the edges between the given nodes
+
+    Return
+    ------
+    matrix:
+        2D array represnt the adjacency matrix
+    """
+    matrix = []
+    i= 0
+    for tail in nodes:
+        matrix.append([])
+        for head in nodes:
+            if (tail,head) in edges:
+                matrix[i].append(1)
+            else:
+                matrix[i].append(0)
+        i += 1
+    return matrix
+
+def writeMatrixToTxt(matrix,nodes):
+    """
+    Write the given matrix in a text file 
+
+    Parameters
+    ----------
+    nodes : list
+        A list of the nodes in the gragh
+    matrix : 2D array
+        The adjacency matrix between given nodes
+    """
+    f = open("AdjacencyMatrix.txt", "w")
+    nodesList = []
+    f.write(f'\t\t')
+    for node in nodes:
+        f.write(f'{str(node)}\t')
+        nodesList.append(node)
+    f.write('\n')
+    for i in range(0,len(nodesList)):
+        f.write(f'{str(nodesList[i])}\t')
+        for cell in matrix[i]:
+            f.write(f'{str(cell)}\t\t')
+        f.write('\n')
+    f.close()
+            
