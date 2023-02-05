@@ -1,12 +1,12 @@
 # Biological networks of protein-protein interactions (PPIs) using python
 
 ## Team members
-Name| Section | Bench number | Github profile
---- | --- | --- | --- |
-Ahmed Mohamed Abd-El Raouf | 1 | 7 | https://github.com/AhmedRaouf481
-Sherif Ahmed  | 1 | 47 | https://github.com/Sherif-2001
-Mazen Tarek Shaker | 2 | 13 | https://github.com/Mazen-Aboulkhair
-Yehia Said Ahmed | 2 | 53 | https://github.com/YehiaSAhmed/
+Name| Section | Bench number
+--- | --- | --- |
+[Ahmed Mohamed Abd-El Raouf](https://github.com/AhmedRaouf481) | 1 | 7
+[Sherif Ahmed Elsayed](https://github.com/Sherif-2001) | 1 | 47
+[Mazen Tarek Shaker](https://github.com/Mazen-Aboulkhair) | 2 | 13 
+[Yehia Said Ahmed](https://github.com/YehiaSAhmed/) | 2 | 53
 ___
 ## About
 Protein-protein interactions (PPI) are the physical connections that exist between proteins in a cell. Understanding PPIs is crucial for comprehending cell physiology, and is also essential for drug development due to the potential impact of medications on PPIs.
@@ -20,7 +20,9 @@ Protein-protein interactions (PPI) are the physical connections that exist betwe
 * Creating a histogram to represent a group of proteins' degrees.
 * Arranging these proteins in descending order of degree and saving the results in a text file.
 * Giving a conversion map between the gene name(s) and the protein(s) UniProt's ID(s).
-* Find the graph's adjacency matrix.
+* Obtaining the adjacency matrix of the graph and saving it in a text file.
+## Demo
+![](ezgif.com-gif-maker.gif)
 
 ### Under Supervision of [Dr. Ibrahim Mohamed Ibrahim](https://github.com/Ibrahim-Youssef)
 ### Copyright © 2023, Team 1 SBME 2024 - Faculty of Engineering - Cairo Uni. 
