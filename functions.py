@@ -166,6 +166,7 @@ def getDegreeAndHistogram(data,list):
                 array.append(list[n])
         degree.append([list[n],i])
     plt.hist(array)
+    plt.show()
     return degree
 
 def getOrderedDegree(array):
