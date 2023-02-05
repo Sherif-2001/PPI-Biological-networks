@@ -134,7 +134,6 @@ def getList(data,protein):
             continue
         if (protein == data[m][0]) or (protein == data[m][1]):
             newFile.write(data[m][0]+"\t\t"+data[m][1]+"\t"+str(data[m][2])+"\n")
-            # print(data[m][2])
             i+=1
     newFile.write("\nDegree = "+str(i))
     newFile.close
