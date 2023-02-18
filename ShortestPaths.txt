@@ -1,3 +1,0 @@
-#Path			Total_Weight	Edges_Weights
-Q16787,P23229,P24043	2			1,1
-Q16787,P16144,P24043	2			1,1
