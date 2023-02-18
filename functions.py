@@ -6,7 +6,7 @@ from path_class import PathData
 
 def getNetworkData(filePath):
     """
-    Get the network data edges from given [filePath]
+    Get the network edges data from given [filePath]
 
     Parameters
     ----------
@@ -26,7 +26,7 @@ def getNetworkData(filePath):
 
 def drawNetworkGraph(network):
     """
-    Draw the given [network] and save it in image file
+    Draw the given [network] and show it
 
     Parameters
     ----------
@@ -71,10 +71,10 @@ def getShortestPaths(network,head,tail):
             tempEdges.append(tuple(edge + [nx.path_weight(network, edge, 'weight')]))
         tempTotalWeight = nx.path_weight(network, path, 'weight')
         tempPathsData.append(PathData(path, tempTotalWeight, tempEdges))
-    makeSubNetwork(tempPathsData)
+    drawSubNetwork(tempPathsData)
     writePathsToFile(tempPathsData)
 
-def makeSubNetwork(pathsData):
+def drawSubNetwork(pathsData):
     """
     Make a sub-network from the given [pathsData]
 
@@ -114,3 +114,4 @@ def writePathsToFile(pathsData):
             edgesWeights.append(str(edge[-1]))
         f.write(",".join(edgesWeights) + "\n")
     f.close()
+    
